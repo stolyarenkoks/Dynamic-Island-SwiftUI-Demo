@@ -4,7 +4,6 @@ Developed entirely natively using Swift and SwiftUI.
 
 ![Preview](preview.png)
 
-## Demo
 [Demo Video](demo.mov)
 
 ## Technologies

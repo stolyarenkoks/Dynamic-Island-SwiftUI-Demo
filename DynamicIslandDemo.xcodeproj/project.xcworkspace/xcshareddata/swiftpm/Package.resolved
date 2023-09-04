@@ -1,15 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "dynamicislandutilities",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/theblixguy/DynamicIslandUtilities.git",
-      "state" : {
-        "revision" : "eeea1f93464fc4fda5713b65fbeb5e6989d8bd0b",
-        "version" : "0.1.0"
-      }
-    },
-    {
       "identity" : "swiftui-introspect",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/siteline/swiftui-introspect",

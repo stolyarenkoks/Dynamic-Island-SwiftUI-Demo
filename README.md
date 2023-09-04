@@ -6,6 +6,12 @@ Developed entirely natively using Swift and SwiftUI.
 
 [Demo Video](demo.mov)
 
+## Installation
+All dependencies are managed by SPM automatically.
+
+## Build
+No additional setup is needed. Build project using Xcode.
+
 ## Technologies
 * Swift
 * SwiftUI

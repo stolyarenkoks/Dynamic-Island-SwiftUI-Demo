@@ -20,7 +20,6 @@
 		C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */; };
 		C4A00A452AA60FF600D5244A /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A382AA60FF600D5244A /* OffsetObservingScrollView.swift */; };
 		C4A00A462AA60FF600D5244A /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A392AA60FF600D5244A /* PositionObservingView.swift */; };
-		C4A730222A863A4B00E43BFB /* DynamicIslandUtilities in Frameworks */ = {isa = PBXBuildFile; productRef = C4A730212A863A4B00E43BFB /* DynamicIslandUtilities */; };
 		C4E312AC2A84F93E00A28192 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = C4E312AB2A84F93E00A28192 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +45,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A730222A863A4B00E43BFB /* DynamicIslandUtilities in Frameworks */,
 				C4E312AC2A84F93E00A28192 /* SwiftUIIntrospect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +194,6 @@
 			name = DynamicIslandDemo;
 			packageProductDependencies = (
 				C4E312AB2A84F93E00A28192 /* SwiftUIIntrospect */,
-				C4A730212A863A4B00E43BFB /* DynamicIslandUtilities */,
 			);
 			productName = DynamicIslandSample;
 			productReference = C41E45502A83A826009470CB /* DynamicIslandDemo.app */;
@@ -228,7 +225,6 @@
 			mainGroup = C41E45472A83A826009470CB;
 			packageReferences = (
 				C4E312AA2A84F93E00A28192 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
-				C4A730202A863A4B00E43BFB /* XCRemoteSwiftPackageReference "DynamicIslandUtilities" */,
 			);
 			productRefGroup = C41E45512A83A826009470CB /* Products */;
 			projectDirPath = "";
@@ -469,14 +465,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C4A730202A863A4B00E43BFB /* XCRemoteSwiftPackageReference "DynamicIslandUtilities" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/theblixguy/DynamicIslandUtilities.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
-			};
-		};
 		C4E312AA2A84F93E00A28192 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/swiftui-introspect";
@@ -488,11 +476,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C4A730212A863A4B00E43BFB /* DynamicIslandUtilities */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C4A730202A863A4B00E43BFB /* XCRemoteSwiftPackageReference "DynamicIslandUtilities" */;
-			productName = DynamicIslandUtilities;
-		};
 		C4E312AB2A84F93E00A28192 /* SwiftUIIntrospect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C4E312AA2A84F93E00A28192 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;

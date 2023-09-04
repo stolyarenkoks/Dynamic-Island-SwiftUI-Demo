@@ -45,7 +45,7 @@ struct ProfileScene: View {
         let coefficient: CGFloat = isZoomEffectEnabled ? 1.1 : 1.0
         var scaleFactor: CGFloat = 1
         scaleFactor = abs((offset.y / 1.5) - islandSize.height) / islandSize.height
-        let perc = min(max(scaleFactor, 0), 1)
+        let perc = min(max(scaleFactor, .zero), 1)
         let scale = (perc * (1 - coefficient)) + coefficient
         return scale
     }
@@ -74,13 +74,14 @@ struct ProfileScene: View {
                         context.addFilter(.alphaThreshold(min: 0.5, color: .black))
                         context.addFilter(.blur(radius: 6))
                         context.drawLayer { ctx in
-                            if let image = ctx.resolveSymbol(id: Const.MainView.imageViewId) {
-                                ctx.draw(image, at: CGPoint(x: (size.width/2),
-                                                            y: (bounds.safeAreaInsets.top + (Const.MainView.imageSize/2) + Const.MainView.imageTopPadding)))
-                            }
                             if let island = ctx.resolveSymbol(id: Const.MainView.islandViewId) {
-                                ctx.draw(island, at: CGPoint(x: (size.width/2),
-                                                             y: islandTopPadding + (islandSize.height/2)))
+                                ctx.draw(island, at: CGPoint(x: (size.width / 2),
+                                                             y: islandTopPadding + (islandSize.height / 2)))
+                            }
+                            if let image = ctx.resolveSymbol(id: Const.MainView.imageViewId) {
+                                let yImageOffset = (Const.MainView.imageSize / 2) + Const.MainView.imageTopPadding
+                                let yImagePosition = bounds.safeAreaInsets.top + yImageOffset
+                                ctx.draw(image, at: CGPoint(x: size.width / 2, y: yImagePosition))
                             }
                         }
                     } symbols: {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DynamicIslandUtilities
 
 // MARK: - DynamicIslandManager
 
@@ -35,7 +34,7 @@ class DynamicIslandManager {
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
         let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            guard let value = element.value as? Int8, value != .zero else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         #endif
@@ -45,7 +44,7 @@ class DynamicIslandManager {
 
     /// The top padding of the Dynamic Island cutout.
     var islandTopPadding: CGFloat {
-        isIslandAvailable ? Const.DynamicIslandManager.topPadding : 0
+        isIslandAvailable ? Const.DynamicIslandManager.topPadding : .zero
     }
 
     /// The size of the Dynamic Island cutout.

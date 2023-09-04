@@ -46,7 +46,7 @@ struct OffsetObservingScrollView<Content: View>: View {
             .coordinateSpace(name: Const.OffsetObservingScrollView.coordinateSpaceName)
             .onChange(
                 of: isScrolling,
-                perform: { newValue in
+                perform: { _ in
                     guard isHeaderPagingEnabled,
                           offset.y < Const.OffsetObservingScrollView.openOffsetPosition && offset.y > 0,
                           !isScrolling else { return }

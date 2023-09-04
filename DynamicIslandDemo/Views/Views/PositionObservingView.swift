@@ -16,6 +16,7 @@ struct PositionObservingView<Content: View>: View {
 
     private struct CurrentPreferenceKey: PreferenceKey {
         static var defaultValue: CGPoint { .zero }
+
         static func reduce(value: inout CGPoint, nextValue: () -> CGPoint) { }
     }
 

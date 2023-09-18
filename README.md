@@ -4,7 +4,7 @@ Developed entirely natively using Swift and SwiftUI.
 
 ![Preview](preview.png)
 
-[Demo Video](demo.mov)
+![Demo](demo.gif)
 
 ## Installation
 All dependencies are managed by SPM automatically.

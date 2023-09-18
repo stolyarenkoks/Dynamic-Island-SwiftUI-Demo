@@ -2,8 +2,6 @@
 An example of a custom animation of the user's avatar smoothly flowing and dissolving into the Dynamic Island, following the example of how it is done in Telegram. 
 Developed entirely natively using Swift and SwiftUI.
 
-![Preview](preview.png)
-
 ![Demo](demo.gif)
 
 ## Installation

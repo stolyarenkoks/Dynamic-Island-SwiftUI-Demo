@@ -34,9 +34,13 @@ struct ProfileScene: View {
         DynamicIslandManager.shared.islandTopPadding
     }
 
+    private var percentage: CGFloat {
+        return min(offset.y, Const.MainView.imageSize)
+    }
+
     private var scale: CGFloat {
         let coefficient = 1 / 1.2
-        let percentage = min(offset.y, Const.MainView.imageSize) * coefficient
+        let percentage = percentage * coefficient
         let scale = (percentage * (0 - 1) / 100) + 1
         return min(scale, 1)
     }
@@ -45,24 +49,44 @@ struct ProfileScene: View {
         let coefficient: CGFloat = isZoomEffectEnabled ? 1.1 : 1.0
         var scaleFactor: CGFloat = 1
         scaleFactor = abs((offset.y / 1.5) - islandSize.height) / islandSize.height
-        let perc = min(max(scaleFactor, .zero), 1)
-        let scale = (perc * (1 - coefficient)) + coefficient
-        return scale
+        let percentage = min(max(scaleFactor, .zero), 1)
+        return (percentage * (1 - coefficient)) + coefficient
     }
 
-    private var opacity: CGFloat {
+    private var avatarOpacity: CGFloat {
         let coefficient = 2.2
-        let percentage = min(offset.y, Const.MainView.imageSize) * coefficient
+        let percentage = percentage * coefficient
+        let opacity = (percentage * (0 - 1) / 100) + 1
+        return min(opacity, 1)
+    }
+
+    private var headerOpacity: CGFloat {
+        let coefficient = 1.0
+        let percentage = percentage * coefficient
         let opacity = (percentage * (0 - 1) / 100) + 1
         return min(opacity, 1)
     }
 
     private var blur: CGFloat {
         let coefficient = 3.5
-        let percentage = min(offset.y, Const.MainView.imageSize) * coefficient
+        let percentage = percentage * coefficient
         let opacity = (percentage * (0 - 1) / 100) + 1
         return 1 - min(opacity, 1)
     }
+
+    private var titleFontSize: CGFloat {
+        interpolateValue(minValue: 18.0, maxValue: 32.0, percent: 100 - percentage)
+    }
+
+    private var descriptionFontSize: CGFloat {
+        interpolateValue(minValue: 14.0, maxValue: 17.0, percent: 100 - percentage)
+    }
+
+    private var headerPadding: CGFloat {
+        interpolateValue(maxValue: 18.0, percent: 100 - percentage)
+    }
+
+    @State private var isAvatarHidden: Bool = true
 
     // MARK: - Body
 
@@ -86,18 +110,17 @@ struct ProfileScene: View {
                         }
                     } symbols: {
                         islandShapeView()
-
                         avatarShapeView()
                     }
                     .edgesIgnoringSafeArea(.top)
                 }
 
                 avatarView()
-
                 scrollView()
+                navigationButtons()
             }
         }
-        .background(Color(uiColor: .systemGray5))
+        .background(Color(uiColor: .systemGray6))
         .onAppear {
             if !DynamicIslandManager.shared.isIslandAvailable {
                 isZoomEffectEnabled = false
@@ -138,7 +161,7 @@ struct ProfileScene: View {
             .clipShape(Circle())
             .scaleEffect(scale)
             .blur(radius: blur)
-            .opacity(opacity)
+            .opacity(avatarOpacity)
             .offset(y: max(-offset.y, -Const.MainView.imageSize + Const.MainView.imageSize.percentage(10)))
             .padding(.top, Const.MainView.imageTopPadding)
     }
@@ -165,52 +188,42 @@ struct ProfileScene: View {
     }
 
     private func headerView() -> some View {
-        VStack(spacing: 8.0) {
-            Text(user.fullName)
-                .font(.title)
-                .bold()
+        VStack(spacing: 4.0) {
+            Text(user.name)
+                .font(.system(size: titleFontSize, weight: .medium))
 
-            HStack {
+            HStack(spacing: 4.0) {
                 Text(user.phoneNumber)
-
                 Text(Const.General.bulletPointSymbol)
-
                 Text(user.nickname)
             }
-            .font(.callout)
             .foregroundColor(Color(uiColor: .systemGray))
-
-            HStack {
-                Image("linkedIn-logo")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-
-                Text(user.linkedInURL)
-                    .font(.callout)
-                    .foregroundColor(Color("linkedIn-color"))
-            }
+            .font(.system(size: descriptionFontSize, weight: .regular))
+            .opacity(headerOpacity)
+            .padding(.bottom, headerPadding)
         }
-        .padding(.bottom, 16.0)
         .frame(maxWidth: .infinity)
-        .background(Color(uiColor: .systemGray5))
+        .background(Color(uiColor: .systemGray6))
         .id(Const.MainView.headerViewId)
     }
 
     private func scrollViewCells() -> some View {
-        VStack {
-            customToggleCells()
+        VStack(spacing: 24.0) {
+            generalSettingsCells()
+            headerSettingsCells()
             emptyCells()
         }
     }
 
-    private func customToggleCells() -> some View {
-        VStack {
+    private func generalSettingsCells() -> some View {
+        VStack(spacing: 24.0) {
             ToggleCellView(parameterName: "Indicators", isToggleOn: $showsIndicators)
+            ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $isZoomEffectEnabled)
+        }
+    }
 
-            if DynamicIslandManager.shared.isIslandAvailable {
-                ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $isZoomEffectEnabled)
-            }
-
+    private func headerSettingsCells() -> some View {
+        VStack {
             ToggleCellView(parameterName: "Header Paging", isToggleOn: $isHeaderPagingEnabled)
             ToggleCellView(parameterName: "Header Pinning", isToggleOn: $isHeaderPinningEnabled)
         }
@@ -218,10 +231,53 @@ struct ProfileScene: View {
 
     private func emptyCells() -> some View {
         VStack {
-            ForEach(0..<10) { _ in
+            ForEach(0..<15) { _ in
                 ToggleCellView(isToggleOn: .constant(false), showToggle: false)
             }
         }
+    }
+
+    private func navigationButtons() -> some View {
+        HStack {
+            if isAvatarHidden {
+                Button {
+                    print("QR button tapped")
+                } label: {
+                    Image(systemName: "qrcode").imageScale(.large)
+                }
+                .opacityTransition(move: .top)
+            }
+
+            Spacer()
+
+            Button {
+                print("\(isAvatarHidden ? "Edit" : "Search") button tapped")
+            } label: {
+                if isAvatarHidden {
+                    AnyView(Text("Edit"))
+                        .opacityTransition(move: .top)
+                } else {
+                    AnyView(Image(systemName: "magnifyingglass").imageScale(.large))
+                        .opacityTransition(move: .bottom)
+                }
+            }
+        }
+        .padding(.horizontal, 16.0)
+        .padding(.top, 4.0)
+        .onChange(
+            of: percentage,
+            perform: { value in
+                withAnimation(.linear(duration: 0.2)) {
+                    isAvatarHidden = !(value == 100)
+                }
+            }
+        )
+    }
+
+    private func interpolateValue(minValue: Double = .zero, maxValue: Double, percent: Double) -> Double {
+        let value = minValue + (maxValue - minValue) * (percent / 100)
+        let balancedValue = min(max(value, minValue), maxValue)
+        return balancedValue
     }
 }
 

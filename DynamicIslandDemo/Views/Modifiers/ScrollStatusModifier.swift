@@ -56,3 +56,12 @@ final class ScrollDelegate: NSObject, UITableViewDelegate, UIScrollViewDelegate 
         self.isScrolling?.wrappedValue = false
     }
 }
+
+// MARK: - ScrollStatusModifier View Extension
+
+extension View {
+
+    func scrollStatus(isScrolling: Binding<Bool>) -> some View {
+        modifier(ScrollStatusModifier(isScrolling: isScrolling))
+    }
+}

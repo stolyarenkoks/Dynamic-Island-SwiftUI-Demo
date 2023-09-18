@@ -11,11 +11,10 @@ import Foundation
 // MARK: - User
 
 struct User {
-    let fullName: String
+    let name: String
     let avatarImageName: String
     let phoneNumber: String
     let nickname: String
-    let linkedInURL: String
 }
 
 // MARK: - User Mock Extension
@@ -23,18 +22,16 @@ struct User {
 extension User {
 
     static func mock(
-        fullName: String = "Konstantin Stolyarenko",
+        name: String = "Konstantin",
         avatarImageName: String = "avatar-image",
         phoneNumber: String = "+380 66 666 6666",
-        nickname: String = "@stolyarenkoks",
-        linkedInURL: String = "konstantinstolyarenko"
+        nickname: String = "@stolyarenkoks"
     ) -> Self {
         .init(
-            fullName: fullName,
+            name: name,
             avatarImageName: avatarImageName,
             phoneNumber: phoneNumber,
-            nickname: nickname,
-            linkedInURL: linkedInURL
+            nickname: nickname
         )
     }
 }

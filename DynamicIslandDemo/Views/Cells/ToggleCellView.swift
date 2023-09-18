@@ -23,6 +23,7 @@ struct ToggleCellView: View {
     var body: some View {
         HStack {
             Text(makeToggleTitle(parameterName: parameterName, isEnabled: isToggleOn))
+                .font(.callout)
                 .lineLimit(1)
 
             Spacer()
@@ -33,9 +34,9 @@ struct ToggleCellView: View {
             }
         }
         .padding([.all], 16)
-        .frame(maxWidth: .infinity, maxHeight: 50)
-        .background(Color(uiColor: .systemGray6))
-        .cornerRadius(16)
+        .frame(maxWidth: .infinity, maxHeight: 44)
+        .background(.white)
+        .cornerRadius(12)
     }
 
     // MARK: - Private Methods

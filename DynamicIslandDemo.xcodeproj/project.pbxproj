@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C46492582AB83ED80083CA3D /* IMG_7451.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492562AB83ED80083CA3D /* IMG_7451.PNG */; };
+		C46492592AB83ED80083CA3D /* IMG_7450.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492572AB83ED80083CA3D /* IMG_7450.PNG */; };
+		C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */; };
 		C4A00A3A2AA60FF600D5244A /* ProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A232AA60FF600D5244A /* ProfileScene.swift */; };
 		C4A00A3B2AA60FF600D5244A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A252AA60FF600D5244A /* Const.swift */; };
 		C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A00A272AA60FF600D5244A /* Assets.xcassets */; };
@@ -14,7 +17,6 @@
 		C4A00A3E2AA60FF600D5244A /* DynamicIslandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2A2AA60FF600D5244A /* DynamicIslandManager.swift */; };
 		C4A00A3F2AA60FF600D5244A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2C2AA60FF600D5244A /* User.swift */; };
 		C4A00A402AA60FF600D5244A /* CGFloat+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */; };
-		C4A00A412AA60FF600D5244A /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2F2AA60FF600D5244A /* View+Extensions.swift */; };
 		C4A00A422AA60FF600D5244A /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A312AA60FF600D5244A /* Application.swift */; };
 		C4A00A432AA60FF600D5244A /* ToggleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A342AA60FF600D5244A /* ToggleCellView.swift */; };
 		C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */; };
@@ -25,6 +27,9 @@
 
 /* Begin PBXFileReference section */
 		C41E45502A83A826009470CB /* DynamicIslandDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicIslandDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C46492562AB83ED80083CA3D /* IMG_7451.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7451.PNG; sourceTree = "<group>"; };
+		C46492572AB83ED80083CA3D /* IMG_7450.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7450.PNG; sourceTree = "<group>"; };
+		C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityTransitionModifier.swift; sourceTree = "<group>"; };
 		C4A00A232AA60FF600D5244A /* ProfileScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScene.swift; sourceTree = "<group>"; };
 		C4A00A252AA60FF600D5244A /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		C4A00A272AA60FF600D5244A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,7 +37,6 @@
 		C4A00A2A2AA60FF600D5244A /* DynamicIslandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandManager.swift; sourceTree = "<group>"; };
 		C4A00A2C2AA60FF600D5244A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extenions.swift"; sourceTree = "<group>"; };
-		C4A00A2F2AA60FF600D5244A /* View+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		C4A00A312AA60FF600D5244A /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		C4A00A342AA60FF600D5244A /* ToggleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCellView.swift; sourceTree = "<group>"; };
 		C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStatusModifier.swift; sourceTree = "<group>"; };
@@ -66,6 +70,15 @@
 				C41E45502A83A826009470CB /* DynamicIslandDemo.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C46492552AB83EC60083CA3D /* Design Reference */ = {
+			isa = PBXGroup;
+			children = (
+				C46492572AB83ED80083CA3D /* IMG_7450.PNG */,
+				C46492562AB83ED80083CA3D /* IMG_7451.PNG */,
+			);
+			path = "Design Reference";
 			sourceTree = "<group>";
 		};
 		C4A00A212AA60FF600D5244A /* DynamicIslandDemo */ = {
@@ -102,6 +115,7 @@
 		C4A00A262AA60FF600D5244A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C46492552AB83EC60083CA3D /* Design Reference */,
 				C4A00A272AA60FF600D5244A /* Assets.xcassets */,
 				C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */,
 			);
@@ -128,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */,
-				C4A00A2F2AA60FF600D5244A /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */,
+				C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -208,7 +222,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C41E454F2A83A826009470CB = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -243,6 +257,8 @@
 			files = (
 				C4A00A3D2AA60FF600D5244A /* Preview Assets.xcassets in Resources */,
 				C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */,
+				C46492582AB83ED80083CA3D /* IMG_7451.PNG in Resources */,
+				C46492592AB83ED80083CA3D /* IMG_7450.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +298,8 @@
 				C4A00A432AA60FF600D5244A /* ToggleCellView.swift in Sources */,
 				C4A00A3E2AA60FF600D5244A /* DynamicIslandManager.swift in Sources */,
 				C4A00A452AA60FF600D5244A /* OffsetObservingScrollView.swift in Sources */,
-				C4A00A412AA60FF600D5244A /* View+Extensions.swift in Sources */,
 				C4A00A402AA60FF600D5244A /* CGFloat+Extenions.swift in Sources */,
+				C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */,
 				C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */,
 				C4A00A462AA60FF600D5244A /* PositionObservingView.swift in Sources */,
 			);

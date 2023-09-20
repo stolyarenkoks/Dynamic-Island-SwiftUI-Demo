@@ -257,8 +257,10 @@ struct ProfileScene: View {
                     AnyView(Text("Edit"))
                         .opacityTransition(move: .top)
                 } else {
-                    AnyView(Image(systemName: "magnifyingglass").imageScale(.large))
-                        .opacityTransition(move: .bottom)
+                    if isHeaderPinningEnabled {
+                        AnyView(Image(systemName: "magnifyingglass").imageScale(.large))
+                            .opacityTransition(move: .bottom)
+                    }
                 }
             }
         }

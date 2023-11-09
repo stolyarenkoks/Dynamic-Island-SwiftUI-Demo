@@ -43,17 +43,23 @@ final class ScrollDelegate: NSObject, UITableViewDelegate, UIScrollViewDelegate 
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let isScrolling = isScrolling?.wrappedValue, !isScrolling else { return }
-        self.isScrolling?.wrappedValue = true
+        Task {
+            self.isScrolling?.wrappedValue = true
+        }
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         guard let isScrolling = isScrolling?.wrappedValue, isScrolling else { return }
-        self.isScrolling?.wrappedValue = false
+        Task {
+            self.isScrolling?.wrappedValue = false
+        }
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard !decelerate, let isScrolling = isScrolling?.wrappedValue, isScrolling else { return }
-        self.isScrolling?.wrappedValue = false
+        Task {
+            self.isScrolling?.wrappedValue = false
+        }
     }
 }
 

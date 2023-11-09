@@ -39,7 +39,12 @@ class DynamicIslandManager {
         }
         #endif
 
-        return identifier == "iPhone15,2" || identifier == "iPhone15,3"
+        let prefix = "iPhone"
+        let iPhone14MinNumber: Double = 15.0
+        let model = String(identifier.suffix(identifier.count - prefix.count))
+        let modelNumber = Double(model.replacingOccurrences(of: ",", with: "."))
+        guard let modelNumber = modelNumber else { return false }
+        return modelNumber > iPhone14MinNumber
     }()
 
     /// The top padding of the Dynamic Island cutout.

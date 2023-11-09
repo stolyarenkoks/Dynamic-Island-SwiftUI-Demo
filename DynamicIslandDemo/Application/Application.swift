@@ -17,7 +17,7 @@ struct Application: App {
 
     var body: some Scene {
         WindowGroup {
-            ProfileScene()
+            ProfileView(viewModel: .init())
         }
     }
 }

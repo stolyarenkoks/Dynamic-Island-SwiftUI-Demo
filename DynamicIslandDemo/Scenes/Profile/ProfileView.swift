@@ -1,106 +1,40 @@
 //
-//  ProfileScene.swift
+//  ProfileView.swift
 //  DynamicIslandDemo
 //
-//  Created by Konstantin Stolyarenko on 09.07.2023.
-//  Copyright © 2023 SKS. All rights reserved.
+//  Created by Konstantin Stolyarenko on 09.11.2023.
 //
 
 import SwiftUI
 
-// MARK: - ProfileScene
+// MARK: - ProfileView
 
-struct ProfileScene: View {
+struct ProfileView: View {
 
     // MARK: - Private Properties
 
-    @Environment(\.scenePhase) var scenePhase
+    @ObservedObject private var viewModel: ViewModel
+    @Environment(\.scenePhase) private var scenePhase
 
-    @State private var offset: CGPoint = .zero
+    // MARK: - Init
 
-    @State private var showsIndicators = false
-    @State private var isZoomEffectEnabled = true
-    @State private var isHeaderPagingEnabled = true
-    @State private var isHeaderPinningEnabled = true
-    @State private var isIslandShapeVisible = true
-
-    private let user: User = .mock()
-
-    private var islandSize: CGSize {
-        DynamicIslandManager.shared.islandSize
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
     }
-
-    private var islandTopPadding: CGFloat {
-        DynamicIslandManager.shared.islandTopPadding
-    }
-
-    private var percentage: CGFloat {
-        return min(offset.y, Const.MainView.imageSize)
-    }
-
-    private var scale: CGFloat {
-        let coefficient = 1 / 1.2
-        let percentage = percentage * coefficient
-        let scale = (percentage * (0 - 1) / 100) + 1
-        return min(scale, 1)
-    }
-
-    private var islandScale: CGFloat {
-        let coefficient: CGFloat = isZoomEffectEnabled ? 1.1 : 1.0
-        var scaleFactor: CGFloat = 1
-        scaleFactor = abs((offset.y / 1.5) - islandSize.height) / islandSize.height
-        let percentage = min(max(scaleFactor, .zero), 1)
-        return (percentage * (1 - coefficient)) + coefficient
-    }
-
-    private var avatarOpacity: CGFloat {
-        let coefficient = 2.2
-        let percentage = percentage * coefficient
-        let opacity = (percentage * (0 - 1) / 100) + 1
-        return min(opacity, 1)
-    }
-
-    private var headerOpacity: CGFloat {
-        let coefficient = 1.0
-        let percentage = percentage * coefficient
-        let opacity = (percentage * (0 - 1) / 100) + 1
-        return min(opacity, 1)
-    }
-
-    private var blur: CGFloat {
-        let coefficient = 3.5
-        let percentage = percentage * coefficient
-        let opacity = (percentage * (0 - 1) / 100) + 1
-        return 1 - min(opacity, 1)
-    }
-
-    private var titleFontSize: CGFloat {
-        interpolateValue(minValue: 18.0, maxValue: 32.0, percent: 100 - percentage)
-    }
-
-    private var descriptionFontSize: CGFloat {
-        interpolateValue(minValue: 14.0, maxValue: 17.0, percent: 100 - percentage)
-    }
-
-    private var headerPadding: CGFloat {
-        interpolateValue(maxValue: 18.0, percent: 100 - percentage)
-    }
-
-    @State private var isAvatarHidden: Bool = true
 
     // MARK: - Body
 
     var body: some View {
         GeometryReader { bounds in
             ZStack(alignment: .top) {
-                if isIslandShapeVisible {
+                if viewModel.isIslandShapeVisible {
                     Canvas { context, size in
                         context.addFilter(.alphaThreshold(min: 0.5, color: .black))
                         context.addFilter(.blur(radius: 6))
                         context.drawLayer { ctx in
                             if let island = ctx.resolveSymbol(id: Const.MainView.islandViewId) {
                                 ctx.draw(island, at: CGPoint(x: (size.width / 2),
-                                                             y: islandTopPadding + (islandSize.height / 2)))
+                                                             y: viewModel.islandTopPadding + (viewModel.islandSize.height / 2)))
                             }
                             if let image = ctx.resolveSymbol(id: Const.MainView.imageViewId) {
                                 let yImageOffset = (Const.MainView.imageSize / 2) + Const.MainView.imageTopPadding
@@ -121,16 +55,11 @@ struct ProfileScene: View {
             }
         }
         .background(Color(uiColor: .systemGray6))
-        .onAppear {
-            if !DynamicIslandManager.shared.isIslandAvailable {
-                isZoomEffectEnabled = false
-            }
-        }
         .onChange(of: scenePhase) { newPhase in
             let isActive = newPhase == .active
             let duration = isActive ? 0.3 : .zero
             withAnimation(Animation.linear(duration: duration).delay(duration)) {
-                isIslandShapeVisible = isActive
+                viewModel.isIslandShapeVisible = isActive
             }
         }
     }
@@ -139,8 +68,10 @@ struct ProfileScene: View {
 
     private func islandShapeView() -> some View {
         Capsule(style: .continuous)
-            .frame(width: islandSize.width, height: islandSize.height, alignment: .center)
-            .scaleEffect(islandScale)
+            .frame(width: viewModel.islandSize.width,
+                   height: viewModel.islandSize.height,
+                   alignment: .center)
+            .scaleEffect(viewModel.islandScale)
             .tag(Const.MainView.islandViewId)
     }
 
@@ -148,33 +79,33 @@ struct ProfileScene: View {
         Circle()
             .fill(.black)
             .frame(width: Const.MainView.imageSize, height: Const.MainView.imageSize, alignment: .center)
-            .scaleEffect(scale)
-            .offset(y: max(-offset.y, -Const.MainView.imageSize + Const.MainView.imageSize.percentage(20)))
+            .scaleEffect(viewModel.scale)
+            .offset(y: max(-viewModel.offset.y, -Const.MainView.imageSize + Const.MainView.imageSize.percentage(20)))
             .tag(Const.MainView.imageViewId)
     }
 
     private func avatarView() -> some View {
-        Image(user.avatarImageName)
+        Image(viewModel.userAvatarImageName)
             .resizable()
             .aspectRatio(1, contentMode: .fit)
             .frame(width: Const.MainView.imageSize, height: Const.MainView.imageSize, alignment: .center)
             .clipShape(Circle())
-            .scaleEffect(scale)
-            .blur(radius: blur)
-            .opacity(avatarOpacity)
-            .offset(y: max(-offset.y, -Const.MainView.imageSize + Const.MainView.imageSize.percentage(10)))
+            .scaleEffect(viewModel.scale)
+            .blur(radius: viewModel.blur)
+            .opacity(viewModel.avatarOpacity)
+            .offset(y: max(-viewModel.offset.y, -Const.MainView.imageSize + Const.MainView.imageSize.percentage(10)))
             .padding(.top, Const.MainView.imageTopPadding)
     }
 
     private func scrollView() -> some View {
         OffsetObservingScrollView(
-            offset: $offset,
-            showsIndicators: $showsIndicators,
-            isHeaderPagingEnabled: $isHeaderPagingEnabled
+            offset: $viewModel.offset,
+            showsIndicators: $viewModel.showsIndicators,
+            isHeaderPagingEnabled: $viewModel.isHeaderPagingEnabled
         ) {
             LazyVStack(
                 alignment: .center,
-                pinnedViews: isHeaderPinningEnabled ? [.sectionHeaders] : []
+                pinnedViews: viewModel.isHeaderPinningEnabled ? [.sectionHeaders] : []
             ) {
                 Section(header: headerView()) {
                     scrollViewCells()
@@ -189,18 +120,18 @@ struct ProfileScene: View {
 
     private func headerView() -> some View {
         VStack(spacing: 4.0) {
-            Text(user.name)
-                .font(.system(size: titleFontSize, weight: .medium))
+            Text(viewModel.userName)
+                .font(.system(size: viewModel.titleFontSize, weight: .medium))
 
             HStack(spacing: 4.0) {
-                Text(user.phoneNumber)
+                Text(viewModel.userPhoneNumber)
                 Text(Const.General.bulletPointSymbol)
-                Text(user.nickname)
+                Text(viewModel.userNickname)
             }
             .foregroundColor(Color(uiColor: .systemGray))
-            .font(.system(size: descriptionFontSize, weight: .regular))
-            .opacity(headerOpacity)
-            .padding(.bottom, headerPadding)
+            .font(.system(size: viewModel.descriptionFontSize, weight: .regular))
+            .opacity(viewModel.headerOpacity)
+            .padding(.bottom, viewModel.headerPadding)
         }
         .frame(maxWidth: .infinity)
         .background(Color(uiColor: .systemGray6))
@@ -217,15 +148,15 @@ struct ProfileScene: View {
 
     private func generalSettingsCells() -> some View {
         VStack(spacing: 24.0) {
-            ToggleCellView(parameterName: "Indicators", isToggleOn: $showsIndicators)
-            ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $isZoomEffectEnabled)
+            ToggleCellView(parameterName: "Indicators", isToggleOn: $viewModel.showsIndicators)
+            ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $viewModel.isZoomEffectEnabled)
         }
     }
 
     private func headerSettingsCells() -> some View {
         VStack {
-            ToggleCellView(parameterName: "Header Paging", isToggleOn: $isHeaderPagingEnabled)
-            ToggleCellView(parameterName: "Header Pinning", isToggleOn: $isHeaderPinningEnabled)
+            ToggleCellView(parameterName: "Header Paging", isToggleOn: $viewModel.isHeaderPagingEnabled)
+            ToggleCellView(parameterName: "Header Pinning", isToggleOn: $viewModel.isHeaderPinningEnabled)
         }
     }
 
@@ -239,7 +170,7 @@ struct ProfileScene: View {
 
     private func navigationButtons() -> some View {
         HStack {
-            if isAvatarHidden {
+            if viewModel.isAvatarHidden {
                 Button {
                     print("QR button tapped")
                 } label: {
@@ -251,13 +182,13 @@ struct ProfileScene: View {
             Spacer()
 
             Button {
-                print("\(isAvatarHidden ? "Edit" : "Search") button tapped")
+                print("\(viewModel.isAvatarHidden ? "Edit" : "Search") button tapped")
             } label: {
-                if isAvatarHidden {
+                if viewModel.isAvatarHidden {
                     AnyView(Text("Edit"))
                         .opacityTransition(move: .top)
                 } else {
-                    if isHeaderPinningEnabled {
+                    if viewModel.isHeaderPinningEnabled {
                         AnyView(Image(systemName: "magnifyingglass").imageScale(.large))
                             .opacityTransition(move: .bottom)
                     }
@@ -267,27 +198,21 @@ struct ProfileScene: View {
         .padding(.horizontal, 16.0)
         .padding(.top, 4.0)
         .onChange(
-            of: percentage,
+            of: viewModel.percentage,
             perform: { value in
                 withAnimation(.linear(duration: 0.2)) {
-                    isAvatarHidden = !(value == 100)
+                    viewModel.isAvatarHidden = !(value == 100)
                 }
             }
         )
-    }
-
-    private func interpolateValue(minValue: Double = .zero, maxValue: Double, percent: Double) -> Double {
-        let value = minValue + (maxValue - minValue) * (percent / 100)
-        let balancedValue = min(max(value, minValue), maxValue)
-        return balancedValue
     }
 }
 
 // MARK: - PreviewProvider
 
-struct MainView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
 
     static var previews: some View {
-        ProfileScene()
+        ProfileView(viewModel: .init(user: .mock()))
     }
 }

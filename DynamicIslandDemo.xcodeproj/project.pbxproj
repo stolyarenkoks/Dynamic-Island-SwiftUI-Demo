@@ -10,7 +10,8 @@
 		C46492582AB83ED80083CA3D /* IMG_7451.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492562AB83ED80083CA3D /* IMG_7451.PNG */; };
 		C46492592AB83ED80083CA3D /* IMG_7450.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492572AB83ED80083CA3D /* IMG_7450.PNG */; };
 		C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */; };
-		C4A00A3A2AA60FF600D5244A /* ProfileScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A232AA60FF600D5244A /* ProfileScene.swift */; };
+		C47B7CED2AFCE71B00FA4781 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */; };
+		C47B7CEF2AFCE72700FA4781 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */; };
 		C4A00A3B2AA60FF600D5244A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A252AA60FF600D5244A /* Const.swift */; };
 		C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A00A272AA60FF600D5244A /* Assets.xcassets */; };
 		C4A00A3D2AA60FF600D5244A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */; };
@@ -30,7 +31,8 @@
 		C46492562AB83ED80083CA3D /* IMG_7451.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7451.PNG; sourceTree = "<group>"; };
 		C46492572AB83ED80083CA3D /* IMG_7450.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7450.PNG; sourceTree = "<group>"; };
 		C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityTransitionModifier.swift; sourceTree = "<group>"; };
-		C4A00A232AA60FF600D5244A /* ProfileScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScene.swift; sourceTree = "<group>"; };
+		C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C4A00A252AA60FF600D5244A /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		C4A00A272AA60FF600D5244A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -81,6 +83,15 @@
 			path = "Design Reference";
 			sourceTree = "<group>";
 		};
+		C47B7CEB2AFCE70500FA4781 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */,
+				C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		C4A00A212AA60FF600D5244A /* DynamicIslandDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +110,7 @@
 		C4A00A222AA60FF600D5244A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				C4A00A232AA60FF600D5244A /* ProfileScene.swift */,
+				C47B7CEB2AFCE70500FA4781 /* Profile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -293,13 +304,14 @@
 			files = (
 				C4A00A3F2AA60FF600D5244A /* User.swift in Sources */,
 				C4A00A422AA60FF600D5244A /* Application.swift in Sources */,
-				C4A00A3A2AA60FF600D5244A /* ProfileScene.swift in Sources */,
 				C4A00A3B2AA60FF600D5244A /* Const.swift in Sources */,
+				C47B7CED2AFCE71B00FA4781 /* ProfileView.swift in Sources */,
 				C4A00A432AA60FF600D5244A /* ToggleCellView.swift in Sources */,
 				C4A00A3E2AA60FF600D5244A /* DynamicIslandManager.swift in Sources */,
 				C4A00A452AA60FF600D5244A /* OffsetObservingScrollView.swift in Sources */,
 				C4A00A402AA60FF600D5244A /* CGFloat+Extenions.swift in Sources */,
 				C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */,
+				C47B7CEF2AFCE72700FA4781 /* ProfileViewModel.swift in Sources */,
 				C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */,
 				C4A00A462AA60FF600D5244A /* PositionObservingView.swift in Sources */,
 			);

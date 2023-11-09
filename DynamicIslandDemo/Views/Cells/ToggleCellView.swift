@@ -35,7 +35,7 @@ struct ToggleCellView: View {
         }
         .padding([.all], 16)
         .frame(maxWidth: .infinity, maxHeight: 44)
-        .background(.white)
+        .background(.background)
         .cornerRadius(12)
     }
 

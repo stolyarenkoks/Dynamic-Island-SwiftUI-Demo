@@ -1,0 +1,29 @@
+name: license-update
+
+on:
+  schedule:
+    - cron: '0 12 * * 0'  # Every Sunday at 12 PM
+  workflow_dispatch:
+
+jobs:
+  update-license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "${{ secrets.EMAIL }}"
+          git config --global user.name "${{ secrets.USER_NAME }}"
+
+      - name: Update LICENSE and README.md
+        run: |
+          chmod +x ./scripts/license-update.sh
+          ./scripts/license-update.sh
+
+      - name: Commit and push changes
+        run: |
+          git add LICENSE README.md
+          git commit -m "Updated License and ReadMe files"
+          git push origin $(git rev-parse --abbrev-ref HEAD)

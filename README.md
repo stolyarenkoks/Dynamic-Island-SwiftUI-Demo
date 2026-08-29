@@ -15,8 +15,8 @@ No additional setup is needed. Build project using Xcode.
 * SwiftUI
 
 ## Versions
-* Xcode 14.3.1 (latest)
-* Swift 5.8.1 (latest)
+* Xcode 26.6 (latest)
+* Swift 5
 
 ## Branches
 GitFlow is strictly enforced on this repository. [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)

@@ -34,8 +34,13 @@ struct ProfileView: View {
                         context.addFilter(.blur(radius: 6))
                         context.drawLayer { ctx in
                             if let island = ctx.resolveSymbol(id: Const.MainView.islandViewId) {
-                                ctx.draw(island, at: CGPoint(x: (size.width / 2),
-                                                             y: viewModel.islandTopPadding + (viewModel.islandSize.height / 2)))
+                                ctx.draw(
+                                    island,
+                                    at: CGPoint(
+                                        x: (size.width / 2),
+                                        y: viewModel.islandTopPadding + (viewModel.islandSize.height / 2)
+                                    )
+                                )
                             }
                             if let image = ctx.resolveSymbol(id: Const.MainView.imageViewId) {
                                 let yImageOffset = (Const.MainView.imageSize / 2) + Const.MainView.imageTopPadding
@@ -69,9 +74,7 @@ struct ProfileView: View {
 
     private func islandShapeView() -> some View {
         Capsule(style: .continuous)
-            .frame(width: viewModel.islandSize.width,
-                   height: viewModel.islandSize.height,
-                   alignment: .center)
+            .frame(width: viewModel.islandSize.width, height: viewModel.islandSize.height, alignment: .center)
             .scaleEffect(viewModel.islandScale)
             .tag(Const.MainView.islandViewId)
     }
@@ -209,11 +212,8 @@ struct ProfileView: View {
     }
 }
 
-// MARK: - PreviewProvider
+// MARK: - Preview
 
-struct ProfileView_Previews: PreviewProvider {
-
-    static var previews: some View {
-        ProfileView(viewModel: .init(user: .mock()))
-    }
+#Preview {
+    ProfileView(viewModel: .init(user: .mock()))
 }

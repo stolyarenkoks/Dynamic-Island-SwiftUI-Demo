@@ -47,16 +47,18 @@ struct ToggleCellView: View {
     }
 }
 
-// MARK: - PreviewProvider
+// MARK: - Preview
 
-struct ToggleCellView_Previews: PreviewProvider {
-
-    static var previews: some View {
+#Preview {
+    ZStack {
+        Color(uiColor: .systemGray6)
 
         VStack {
             ToggleCellView(parameterName: "Not Long Title", isToggleOn: .constant(true))
             ToggleCellView(parameterName: "Long Title Very Long Title Title Title Title", isToggleOn: .constant(false))
             ToggleCellView(parameterName: "Empty", isToggleOn: .constant(true), showToggle: false)
         }
+        .padding()
     }
+    .ignoresSafeArea()
 }

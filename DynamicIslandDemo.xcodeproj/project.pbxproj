@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C46492582AB83ED80083CA3D /* IMG_7451.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492562AB83ED80083CA3D /* IMG_7451.PNG */; };
-		C46492592AB83ED80083CA3D /* IMG_7450.PNG in Resources */ = {isa = PBXBuildFile; fileRef = C46492572AB83ED80083CA3D /* IMG_7450.PNG */; };
 		C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */; };
 		C47B7CED2AFCE71B00FA4781 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */; };
 		C47B7CEF2AFCE72700FA4781 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */; };
@@ -28,8 +26,6 @@
 
 /* Begin PBXFileReference section */
 		C41E45502A83A826009470CB /* DynamicIslandDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicIslandDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C46492562AB83ED80083CA3D /* IMG_7451.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7451.PNG; sourceTree = "<group>"; };
-		C46492572AB83ED80083CA3D /* IMG_7450.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_7450.PNG; sourceTree = "<group>"; };
 		C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityTransitionModifier.swift; sourceTree = "<group>"; };
 		C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -72,15 +68,6 @@
 				C41E45502A83A826009470CB /* DynamicIslandDemo.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C46492552AB83EC60083CA3D /* Design Reference */ = {
-			isa = PBXGroup;
-			children = (
-				C46492572AB83ED80083CA3D /* IMG_7450.PNG */,
-				C46492562AB83ED80083CA3D /* IMG_7451.PNG */,
-			);
-			path = "Design Reference";
 			sourceTree = "<group>";
 		};
 		C47B7CEB2AFCE70500FA4781 /* Profile */ = {
@@ -126,7 +113,6 @@
 		C4A00A262AA60FF600D5244A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C46492552AB83EC60083CA3D /* Design Reference */,
 				C4A00A272AA60FF600D5244A /* Assets.xcassets */,
 				C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */,
 			);
@@ -268,8 +254,6 @@
 			files = (
 				C4A00A3D2AA60FF600D5244A /* Preview Assets.xcassets in Resources */,
 				C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */,
-				C46492582AB83ED80083CA3D /* IMG_7451.PNG in Resources */,
-				C46492592AB83ED80083CA3D /* IMG_7450.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

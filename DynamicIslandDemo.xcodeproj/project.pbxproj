@@ -3,44 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */; };
-		C47B7CED2AFCE71B00FA4781 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */; };
-		C47B7CEF2AFCE72700FA4781 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */; };
-		C4A00A3B2AA60FF600D5244A /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A252AA60FF600D5244A /* Const.swift */; };
-		C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A00A272AA60FF600D5244A /* Assets.xcassets */; };
-		C4A00A3D2AA60FF600D5244A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */; };
-		C4A00A3E2AA60FF600D5244A /* DynamicIslandManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2A2AA60FF600D5244A /* DynamicIslandManager.swift */; };
-		C4A00A3F2AA60FF600D5244A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2C2AA60FF600D5244A /* User.swift */; };
-		C4A00A402AA60FF600D5244A /* CGFloat+Extenions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */; };
-		C4A00A422AA60FF600D5244A /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A312AA60FF600D5244A /* Application.swift */; };
-		C4A00A432AA60FF600D5244A /* ToggleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A342AA60FF600D5244A /* ToggleCellView.swift */; };
-		C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */; };
-		C4A00A452AA60FF600D5244A /* OffsetObservingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A382AA60FF600D5244A /* OffsetObservingScrollView.swift */; };
-		C4A00A462AA60FF600D5244A /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A00A392AA60FF600D5244A /* PositionObservingView.swift */; };
 		C4E312AC2A84F93E00A28192 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = C4E312AB2A84F93E00A28192 /* SwiftUIIntrospect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C41E45502A83A826009470CB /* DynamicIslandDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicIslandDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpacityTransitionModifier.swift; sourceTree = "<group>"; };
-		C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		C4A00A252AA60FF600D5244A /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		C4A00A272AA60FF600D5244A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C4A00A2A2AA60FF600D5244A /* DynamicIslandManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicIslandManager.swift; sourceTree = "<group>"; };
-		C4A00A2C2AA60FF600D5244A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extenions.swift"; sourceTree = "<group>"; };
-		C4A00A312AA60FF600D5244A /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		C4A00A342AA60FF600D5244A /* ToggleCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleCellView.swift; sourceTree = "<group>"; };
-		C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollStatusModifier.swift; sourceTree = "<group>"; };
-		C4A00A382AA60FF600D5244A /* OffsetObservingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetObservingScrollView.swift; sourceTree = "<group>"; };
-		C4A00A392AA60FF600D5244A /* PositionObservingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		C4A00A212AA60FF600D5244A /* DynamicIslandDemo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = DynamicIslandDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C41E454D2A83A826009470CB /* Frameworks */ = {
@@ -70,123 +50,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C47B7CEB2AFCE70500FA4781 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				C47B7CEC2AFCE71B00FA4781 /* ProfileView.swift */,
-				C47B7CEE2AFCE72700FA4781 /* ProfileViewModel.swift */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		C4A00A212AA60FF600D5244A /* DynamicIslandDemo */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A242AA60FF600D5244A /* Constants */,
-				C4A00A292AA60FF600D5244A /* Managers */,
-				C4A00A2B2AA60FF600D5244A /* Models */,
-				C4A00A322AA60FF600D5244A /* Views */,
-				C4A00A222AA60FF600D5244A /* Scenes */,
-				C4A00A2D2AA60FF600D5244A /* Extensions */,
-				C4A00A262AA60FF600D5244A /* Resources */,
-				C4A00A302AA60FF600D5244A /* Application */,
-			);
-			path = DynamicIslandDemo;
-			sourceTree = "<group>";
-		};
-		C4A00A222AA60FF600D5244A /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				C47B7CEB2AFCE70500FA4781 /* Profile */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		C4A00A242AA60FF600D5244A /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A252AA60FF600D5244A /* Const.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
-		C4A00A262AA60FF600D5244A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A272AA60FF600D5244A /* Assets.xcassets */,
-				C4A00A282AA60FF600D5244A /* Preview Assets.xcassets */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		C4A00A292AA60FF600D5244A /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A2A2AA60FF600D5244A /* DynamicIslandManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		C4A00A2B2AA60FF600D5244A /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A2C2AA60FF600D5244A /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C4A00A2D2AA60FF600D5244A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A2E2AA60FF600D5244A /* CGFloat+Extenions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C4A00A302AA60FF600D5244A /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A312AA60FF600D5244A /* Application.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		C4A00A322AA60FF600D5244A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A332AA60FF600D5244A /* Cells */,
-				C4A00A352AA60FF600D5244A /* Modifiers */,
-				C4A00A372AA60FF600D5244A /* Views */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		C4A00A332AA60FF600D5244A /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A342AA60FF600D5244A /* ToggleCellView.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		C4A00A352AA60FF600D5244A /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A362AA60FF600D5244A /* ScrollStatusModifier.swift */,
-				C464925A2AB86A1B0083CA3D /* OpacityTransitionModifier.swift */,
-			);
-			path = Modifiers;
-			sourceTree = "<group>";
-		};
-		C4A00A372AA60FF600D5244A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C4A00A382AA60FF600D5244A /* OffsetObservingScrollView.swift */,
-				C4A00A392AA60FF600D5244A /* PositionObservingView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,6 +65,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C4A00A212AA60FF600D5244A /* DynamicIslandDemo */,
 			);
 			name = DynamicIslandDemo;
 			packageProductDependencies = (
@@ -227,7 +93,6 @@
 				};
 			};
 			buildConfigurationList = C41E454B2A83A826009470CB /* Build configuration list for PBXProject "DynamicIslandDemo" */;
-			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -235,10 +100,12 @@
 				Base,
 			);
 			mainGroup = C41E45472A83A826009470CB;
+			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				C4E312AA2A84F93E00A28192 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = C41E45512A83A826009470CB /* Products */;
+			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -252,8 +119,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A00A3D2AA60FF600D5244A /* Preview Assets.xcassets in Resources */,
-				C4A00A3C2AA60FF600D5244A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,18 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4A00A3F2AA60FF600D5244A /* User.swift in Sources */,
-				C4A00A422AA60FF600D5244A /* Application.swift in Sources */,
-				C4A00A3B2AA60FF600D5244A /* Const.swift in Sources */,
-				C47B7CED2AFCE71B00FA4781 /* ProfileView.swift in Sources */,
-				C4A00A432AA60FF600D5244A /* ToggleCellView.swift in Sources */,
-				C4A00A3E2AA60FF600D5244A /* DynamicIslandManager.swift in Sources */,
-				C4A00A452AA60FF600D5244A /* OffsetObservingScrollView.swift in Sources */,
-				C4A00A402AA60FF600D5244A /* CGFloat+Extenions.swift in Sources */,
-				C464925B2AB86A1B0083CA3D /* OpacityTransitionModifier.swift in Sources */,
-				C47B7CEF2AFCE72700FA4781 /* ProfileViewModel.swift in Sources */,
-				C4A00A442AA60FF600D5244A /* ScrollStatusModifier.swift in Sources */,
-				C4A00A462AA60FF600D5244A /* PositionObservingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,8 +287,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,7 +297,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -463,8 +315,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +325,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

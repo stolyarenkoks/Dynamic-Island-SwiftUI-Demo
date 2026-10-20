@@ -25,6 +25,10 @@ extension ProfileView {
 
         @Published var offset: CGPoint = .zero
 
+        var isCutoutAvailable: Bool {
+            DynamicIslandManager.shared.isCutoutAvailable
+        }
+
         var islandSize: CGSize {
             DynamicIslandManager.shared.islandSize
         }

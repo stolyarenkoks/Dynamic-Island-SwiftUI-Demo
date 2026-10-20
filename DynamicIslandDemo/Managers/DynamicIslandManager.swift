@@ -6,7 +6,7 @@
 //  Copyright © 2023 SKS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - DynamicIslandManager
 
@@ -16,19 +16,89 @@ class DynamicIslandManager {
 
     static let shared = DynamicIslandManager()
 
-    private init() {}
+    private init() {
+        let screen = UIScreen.main
+        var cutoutFrame: CGRect?
+
+        if screen.responds(to: NSSelectorFromString(Self.exclusionAreaKey)) {
+            cutoutFrame = Self.systemCutoutFrame(of: screen)
+            if let cutoutFrame {
+                // The Dynamic Island floats below the top edge of the screen, while the notch is attached to it.
+                cutoutType = cutoutFrame.minY > .zero ? .dynamicIsland : .notch
+            } else {
+                cutoutType = .none
+            }
+        } else {
+            cutoutType = Self.isIslandAvailableForDeviceModel() ? .dynamicIsland : .none
+        }
+
+        switch cutoutType {
+        case .dynamicIsland:
+            islandTopPadding = cutoutFrame?.minY ?? Const.DynamicIslandManager.topPadding
+            islandSize = cutoutFrame?.size ?? Const.DynamicIslandManager.islandSize
+        case .notch:
+            islandTopPadding = .zero
+            islandSize = Const.DynamicIslandManager.notchSize
+        case .none:
+            islandTopPadding = .zero
+            islandSize = .zero
+        }
+    }
+
+    // MARK: - CutoutType
+
+    enum CutoutType {
+        case dynamicIsland
+        case notch
+        case none
+    }
 
     // MARK: - Internal Properties
 
-    /// Returns whether this device supports the Dynamic Island.
-    /// This returns `true` for iPhone 14 Pro and iPhone Pro Max, otherwise returns `false`.
-    let isIslandAvailable: Bool = {
-        if #unavailable(iOS 16) {
-            return false
-        }
+    /// The type of the screen cutout on this device.
+    let cutoutType: CutoutType
 
+    /// Returns whether this device has the Dynamic Island.
+    var isIslandAvailable: Bool {
+        cutoutType == .dynamicIsland
+    }
+
+    /// Returns whether this device has any screen cutout (Dynamic Island or notch).
+    var isCutoutAvailable: Bool {
+        cutoutType != .none
+    }
+
+    /// The top padding of the Dynamic Island cutout.
+    let islandTopPadding: CGFloat
+
+    /// The size of the Dynamic Island cutout.
+    let islandSize: CGSize
+
+    // MARK: - Private Properties
+
+    private static let exclusionAreaKey = "_exclusionArea"
+
+    // MARK: - Private Methods
+
+    /// The frame of the screen cutout (Dynamic Island or notch) in screen points, as reported by the system.
+    /// Relies on the private `UIScreen._exclusionArea` API, which returns `nil` on devices without a cutout.
+    private static func systemCutoutFrame(of screen: UIScreen) -> CGRect? {
+        guard
+            let area = screen.value(forKey: exclusionAreaKey) as? NSObject,
+            area.responds(to: NSSelectorFromString("rect")),
+            let rect = area.value(forKey: "rect") as? CGRect,
+            !rect.isEmpty
+        else {
+            return nil
+        }
+        return rect
+    }
+
+    /// Fallback for when the system cutout frame is unavailable.
+    /// Returns `true` for iPhone 14 Pro and later models, except for the notched iPhone 16e and iPhone 17e.
+    private static func isIslandAvailableForDeviceModel() -> Bool {
         #if targetEnvironment(simulator)
-        let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"]!
+        let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
         #else
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -40,30 +110,11 @@ class DynamicIslandManager {
         #endif
 
         let prefix = "iPhone"
-        let iPhone14MinNumber: Double = 15.0
-        let model = String(identifier.suffix(identifier.count - prefix.count))
-        let modelNumber = Double(model.replacingOccurrences(of: ",", with: "."))
-        guard let modelNumber = modelNumber else { return false }
-        return modelNumber > iPhone14MinNumber
-    }()
-
-    /// The top padding of the Dynamic Island cutout.
-    var islandTopPadding: CGFloat {
-        isIslandAvailable ? Const.DynamicIslandManager.topPadding : .zero
-    }
-
-    /// The size of the Dynamic Island cutout.
-    var islandSize: CGSize {
-        isIslandAvailable ? islandActualSize : notchActualSize
-    }
-
-    // MARK: - Private Properties
-
-    private var islandActualSize: CGSize {
-        CGSize(width: 126.0, height: 37.33)
-    }
-
-    private var notchActualSize: CGSize {
-        CGSize(width: 94, height: 32)
+        let iPhone14ProMinNumber: Double = 15.0
+        let notchedIdentifiers: Set<String> = ["iPhone17,5", "iPhone18,5"]
+        guard identifier.hasPrefix(prefix), !notchedIdentifiers.contains(identifier) else { return false }
+        let model = identifier.dropFirst(prefix.count).replacingOccurrences(of: ",", with: ".")
+        guard let modelNumber = Double(model) else { return false }
+        return modelNumber > iPhone14ProMinNumber
     }
 }

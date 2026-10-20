@@ -28,7 +28,7 @@ struct ProfileView: View {
     var body: some View {
         GeometryReader { bounds in
             ZStack(alignment: .top) {
-                if viewModel.isIslandShapeVisible {
+                if viewModel.isCutoutAvailable && viewModel.isIslandShapeVisible {
                     Canvas { context, size in
                         context.addFilter(.alphaThreshold(min: 0.5, color: .black))
                         context.addFilter(.blur(radius: 6))
@@ -150,7 +150,9 @@ struct ProfileView: View {
     private func generalSettingsCells() -> some View {
         VStack(spacing: 24.0) {
             ToggleCellView(parameterName: "Indicators", isToggleOn: $viewModel.showsIndicators)
-            ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $viewModel.isZoomEffectEnabled)
+            if viewModel.isCutoutAvailable {
+                ToggleCellView(parameterName: "Zoom Effect", isToggleOn: $viewModel.isZoomEffectEnabled)
+            }
         }
     }
 

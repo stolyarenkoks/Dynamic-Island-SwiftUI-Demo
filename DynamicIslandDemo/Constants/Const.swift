@@ -21,7 +21,9 @@ enum Const {
     // MARK: - Managers
 
     enum DynamicIslandManager {
-        static let topPadding: CGFloat = 11.0
+        static let topPadding: CGFloat = 14.0
+        static let islandSize = CGSize(width: 125.0, height: 36.67)
+        static let notchSize = CGSize(width: 94.0, height: 32.0)
     }
 
     // MARK: - Views

@@ -95,7 +95,7 @@ class DynamicIslandManager {
     }
 
     /// Fallback for when the system cutout frame is unavailable.
-    /// Returns `true` for iPhone 14 Pro and later models, except for the notched iPhone 16e.
+    /// Returns `true` for iPhone 14 Pro and later models, except for the notched iPhone 16e and iPhone 17e.
     private static func isIslandAvailableForDeviceModel() -> Bool {
         #if targetEnvironment(simulator)
         let identifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] ?? ""
@@ -111,7 +111,7 @@ class DynamicIslandManager {
 
         let prefix = "iPhone"
         let iPhone14ProMinNumber: Double = 15.0
-        let notchedIdentifiers: Set<String> = ["iPhone17,5"]
+        let notchedIdentifiers: Set<String> = ["iPhone17,5", "iPhone18,5"]
         guard identifier.hasPrefix(prefix), !notchedIdentifiers.contains(identifier) else { return false }
         let model = identifier.dropFirst(prefix.count).replacingOccurrences(of: ",", with: ".")
         guard let modelNumber = Double(model) else { return false }

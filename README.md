@@ -21,6 +21,8 @@ No additional setup is needed. Build project using Xcode.
 ## Supported Devices
 iPhone only, iOS 16.4 and later.
 
+![Device types](devices.png)
+
 * iPhone 8, iPhone SE, etc. (no notch or Dynamic Island: the avatar shrinks and fades out)
 * iPhone X – iPhone 14 Plus, iPhone 16e, iPhone 17e (notch: the avatar flows into the notch)
 * iPhone 14 Pro – iPhone 17 Pro Max, iPhone Air (Dynamic Island: full functionality)
